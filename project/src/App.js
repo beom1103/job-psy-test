@@ -1,15 +1,17 @@
-// import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
-import User from "./components/User";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import User from "./pages/User";
+import TestPageEx from './pages/TestPageEx';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        
-          <User />
-        
+
+        <Switch>
+          <Route path="/" exact><User /></Route>
+          <Route path="/testEx" ><TestPageEx /></Route>
+        </Switch>
 
 
       </BrowserRouter>

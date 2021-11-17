@@ -65,11 +65,12 @@ function User({ onInsert }) {
         </div>
 
         <br />
-        {/* 재사용 컴포넌트로 만들어야함. */}
+
         <button 
           type="submit"
           disabled={!(isName && isChecked)}
-        >검사시작</button>
+        >검사시작
+        </button>
         
       </form>
     </div>
