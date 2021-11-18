@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 
 function User({ onInsert }) {
 
@@ -12,9 +12,7 @@ function User({ onInsert }) {
   const [nameMessage, setNameMessage] = useState('')
   const [checkMessage, setCheckMessage] = useState('성별을 체크해주세요.')
 
-
-  const onChangeName = useCallback((e) => {
-    setUserName(e.target.value)
+  useEffect(() => {
     if (userName.length === 0) {
       setNameMessage('')
       setIsName(false)
@@ -25,8 +23,12 @@ function User({ onInsert }) {
       setNameMessage('올바른 이름 형식입니다')
       setIsName(true)
     }
-  }, [userName])
+  },[userName])
 
+  const onChangeName = useCallback((e) => {
+    setUserName(e.target.value)
+  }, [])
+  
   
   const onChangeChecked = () => {
     setIsChecked(true)
