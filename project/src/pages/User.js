@@ -1,6 +1,8 @@
 import React, { useState, useCallback, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-function User({ onInsert }) {
+
+function User() {
 
   // 유효성 검사
   const [isName, setIsName] = useState(false);
@@ -68,11 +70,13 @@ function User({ onInsert }) {
 
         <br />
 
-        <button 
-          type="submit"
-          disabled={!(isName && isChecked)}
-        >검사시작
-        </button>
+        <Link to="/testEx">
+          <button
+            type="submit"
+            disabled={!(isName && isChecked)}
+          >검사시작
+          </button>
+        </Link>
         
       </form>
     </div>
