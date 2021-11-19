@@ -46,7 +46,7 @@ function User() {
 
       <form>
         <div>
-          <label for="이름">이름 : </label>
+          <label htmlFor="이름">이름 : </label>
           <input 
             type="text"
             value = {userName} 
@@ -61,7 +61,7 @@ function User() {
 
         <div className="checkBox" >
           <span>
-            <label for="gender">성별 : </label>
+            <label htmlFor="gender">성별 : </label>
             <input type="radio" value="M" name="gender" id="male" onClick={onChangeChecked} />남
             <input type="radio" value="F" name="gender" id="female" onClick={onChangeChecked} />여
           </ span>  &nbsp;
