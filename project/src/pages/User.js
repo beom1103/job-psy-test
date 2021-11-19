@@ -34,9 +34,8 @@ function User() {
   
   const onChangeChecked = () => {
     setIsChecked(true)
-    if (checkMessage === true) {
-      setCheckMessage("")
-    }
+    setCheckMessage('')
+    
   }
 
   return (
@@ -53,17 +52,18 @@ function User() {
             value = {userName} 
             name="이름" 
             placeholder="이름을 입력하세요." 
+            autoComplete="off"
             onChange={onChangeName} />
     
           <p>{nameMessage}</p>
         </div>
         <br />
 
-        <div className="checkBox" onChange={onChangeChecked}>
+        <div className="checkBox" >
           <span>
             <label for="gender">성별 : </label>
-            <input type="radio" value="M" name="gender" id="male" />남
-            <input type="radio" value="F" name="gender" id="female" />여
+            <input type="radio" value="M" name="gender" id="male" onClick={onChangeChecked} />남
+            <input type="radio" value="F" name="gender" id="female" onClick={onChangeChecked} />여
           </ span>  &nbsp;
           <span>{checkMessage}</span>
         </div>

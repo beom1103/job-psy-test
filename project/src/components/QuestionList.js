@@ -25,9 +25,9 @@ const QuestionList = () => {
   }, [])
   return (
     <div>
-        {question.map((question)=> {
+        {question.map((question) => {
           return (
-            <div>
+            <div key={question['qitemNo']}>
               <h3>
                 {question['qitemNo']}번 {question['question']}
               </h3>
