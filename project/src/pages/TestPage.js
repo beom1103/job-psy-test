@@ -14,12 +14,19 @@ const TestPage = () => {
   // 페이지 당 문항수
   const [perPage, setPerPage] = useState(5);
 
-  const paginate = (pageNumber) => setCurPage(pageNumber);
 
   // 다음, 이전 이벤트 조작 
-  const next = () => setCurPage(curPage+1);
-  const prev = () => setCurPage(curPage-1);
+  const next = () => {
   
+    setCurPage(curPage+1)
+  };
+  const prev = () => {
+    
+    setCurPage(curPage-1)
+  };
+  const paginate = (pageNumber) => setCurPage(pageNumber);
+
+  //문항 수 체크
 
   // 해당 페이지의 마지막 index 번호
   const last = curPage * perPage;  
@@ -45,6 +52,7 @@ const TestPage = () => {
     fetchQuestions();
 
   }, [])
+  console.log("렌더링이 되었습니다.")
 
   return (
     <div>
@@ -60,6 +68,10 @@ const TestPage = () => {
         next={next}
         prev={prev}
         curPage={curPage} />
+      
+      <button>제출
+      </button>
+
     </div>
   )
 }
