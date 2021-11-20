@@ -1,10 +1,8 @@
-import React, { useHistory } from "react";
+import React from "react";
 import styled from 'styled-components';
 
 
 const Pagination = ({ perPage, total, paginate, next, prev, curPage }) => {
-  const pageNumber = [];
-
   const PageUl = styled.ul`
   float:left;
   list-style: none;
@@ -71,7 +69,7 @@ const Button = styled.button`
   }
 `
 
-
+  const pageNumber = [];
   // Math.ceil: 올림, 
   for (let i = 1; i <= Math.ceil(total / perPage); i++) {
     pageNumber.push(i);
@@ -92,7 +90,10 @@ const Button = styled.button`
                 <PageUl className="pagination">
                   <PageLi className="page-item"
                     key={pageNum}
-                    onClick={() => paginate(pageNum)}
+                    onClick={() => {
+                      paginate(pageNum)
+                    
+                    }}
                   >
                     <PageSpan aria-hidden="true">
                     {pageNum}

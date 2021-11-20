@@ -6,9 +6,10 @@ const TestPageEx = () => {
 
   const [isChecked, setIsChecked] = useState(false);
   
-  const onChangeChecked = () => {
+  const onChangeChecked = (e) => {
   setIsChecked(true)
 }
+
   return (
     // 진행바 구현해야 함.
 
@@ -28,7 +29,7 @@ const TestPageEx = () => {
           <input type="radio" value="2" name="answer" /> 자율성
         </form>
         
-      <Link to="/test">
+      <Link to="/test" >
         <button
             type="submit"
             disabled={!(isChecked)}
