@@ -6,9 +6,13 @@ import { UserContext } from "../components/UserStore";
 function User() {
   const [post, setPost] = useContext(UserContext);
 
+  // 이름을 입력받는 state
+  const [userName, setUserName] = useState("");
+
   // 유효성 검사
   const [isName, setIsName] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
+
   useEffect(() => {
      if (userName.length === 0) {
        setNameMessage('')
@@ -20,10 +24,9 @@ function User() {
        setNameMessage('올바른 이름 형식입니다')
        setIsName(true)
      }
-   },[userName])
+   },[userName, post])
 
-  // 이름을 입력받는 state
-  const [userName, setUserName] = useState("");
+
 
   // 오류메세지
   const [nameMessage, setNameMessage] = useState('')

@@ -1,25 +1,34 @@
-import React, { useContext, useCallback } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../components/UserStore";
 
 
 const QuestionList = ({question}) => {
-
   
-  function saveData(e) {
-    const {name, value} = e.target
-    const storage = localStorage.setItem(name, value);
+  const [post,setPost] = useContext(UserContext);
+  const [inputs, setInputs] = useState([]);
   
-  }
   
-  const [post, setPost] = useContext(UserContext);
-  const objHandler = useCallback((e) => {
+  const objHandler =((e) => {
     const {name, value} = e.target;
-    setPost({
-      ...post,
-      [name]: value,
-      })
+    
+    setInputs((i) => {
+      const newInputs = {...i};
+      newInputs[name] = value
+      return newInputs;
+    })
+
+  });
+
+  useEffect(() => {
+    const answerList = [];
+    for (let i of Object.entries(inputs)) {
+      answerList.push(i.join("="));
+    }
+    
+      post.answers = answerList.join(" ");
       console.log(post)
-  },[post])
+      
+  }, [inputs, post])
 
   return (
     <div>
@@ -34,7 +43,6 @@ const QuestionList = ({question}) => {
                   type="radio" 
                   name={"B"+question['qitemNo']} 
                   value={question['answerScore01']}
-                  onClick={saveData}
                   
 
                   />
@@ -47,7 +55,6 @@ const QuestionList = ({question}) => {
                   type="radio" 
                   name={"B"+question['qitemNo']} 
                   value={question['answerScore02']} 
-                  onClick={saveData}
                   
                   />
                 <span name="2">{question['answer02']} : </span>
