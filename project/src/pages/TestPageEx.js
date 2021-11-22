@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from "react-router-dom";
 
 
+
 const TestPageEx = () => {
 
   const [isChecked, setIsChecked] = useState(false);
@@ -9,13 +10,13 @@ const TestPageEx = () => {
   const onChangeChecked = (e) => {
   setIsChecked(true)
 }
-
+  const now = 0;
   return (
     // 진행바 구현해야 함.
 
     <div>
       <h1>검사예시</h1>
-
+      {/* <span><ProgressBar now={now} label={`${now}% completed`}/></span> */}
 
         <div>
           직업과 관련된 두개의 가치 중에서 자기에게 더 중요한 가치에 체크하세요.
@@ -28,7 +29,7 @@ const TestPageEx = () => {
           <input type="radio" value="1" name="answer" /> 능력발휘
           <input type="radio" value="2" name="answer" /> 자율성
         </form>
-        
+      
       <Link to="/test" >
         <button
             type="submit"

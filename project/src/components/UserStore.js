@@ -11,7 +11,7 @@ const UserStore = (props) => {
     "trgetSe": "100029",
     "name" : "",
     "gender": "",
-    "startDtm": new Date().getFullYear,
+    "startDtm": new Date().getTime(),
     "answers" : ""
   })
 

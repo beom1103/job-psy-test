@@ -1,24 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import QuestionList from '../components/QuestionList';
 import Pagination from '../components/Pagination';
+import ProgressBar from '../components/ProgressBar';
 import axios from 'axios';
-import { UserContext } from "../components/UserStore";
-
-
+import { Link } from 'react-router-dom';
 
 const TestPage = () => {
   const [question, setQusetion] = useState([]);
   const key = '5fcc4366025782ac126088744b9620ea';
+
+  // 진행상황 컨트롤
+  const [count, setCount] = useState(0); //문항 수 체크
+  const [buttonCtrl, setButtonCtrl] = useState(0);
+  const countHandler = (perBar) => {
+    setCount(perBar)
+  }; // 문항수 체크 후 
   
+  useEffect(() => {
+    setButtonCtrl(buttonCtrl + 1) //버튼을 제어하는 state
+  }, [count])
+
+  // 다음, 이전 이벤트 조작 
+  const next = () => {
+    setCurPage(curPage+1)
+    setButtonCtrl(0)
+  };
+
+  const prev = () => {
+    setCurPage(curPage-1)
+    setButtonCtrl(5)
+  };
+  
+ 
   // 현재 페이지
   const [curPage, setCurPage] = useState(1);
   // 페이지 당 문항수
   const [perPage, setPerPage] = useState(5);
-
-  // 다음, 이전 이벤트 조작 
-  const next = () => {setCurPage(curPage+1)};
-  const prev = () => {setCurPage(curPage-1)};
-  const paginate = (pageNumber) => setCurPage(pageNumber);
+  
+  // const paginate = (pageNumber) => setCurPage(pageNumber);
 
   // 해당 페이지의 마지막 index 번호
   const last = curPage * perPage;  
@@ -35,35 +54,36 @@ const TestPage = () => {
       try {
         const res = await axios.get(`https://www.career.go.kr/inspct/openapi/test/questions?apikey=${key}&q=6`)
         setQusetion(res.data["RESULT"]);
-        console.log(question)
       } catch (e) {
         console.log('Error!')
       }
     }
-
     fetchQuestions();
-
   }, [])
-  
 
   return (
     <div>
       <div>
         <h1>검사진행</h1>
+        <p>{count}/28</p>
+        <ProgressBar count={count} />
         {/*여기에 진행 막대기 넣어야함.*/}
       </div>
-      <QuestionList question={cur}  />
+      <QuestionList question={cur} countHandler={countHandler} />
       <Pagination 
-        perPage={perPage} 
-        total={question.length} 
-        paginate={paginate}
+        // perPage={perPage} 
+        // total={question.length} 
+        // paginate={paginate}
         next={next}
         prev={prev}
         curPage={curPage}
+        buttonCtrl={buttonCtrl}
         />
       
-      <button>제출
-      </button>
+      <Link to="/test/complete">
+        <button disabled={(count != 28)}>제출
+        </button>
+      </Link>
 
     </div>
   )
