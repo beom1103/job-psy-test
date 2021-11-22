@@ -12,18 +12,28 @@ function User() {
   // 유효성 검사
   const [isName, setIsName] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
+  const pattern1 = /[a-zA-Z]/; //영어 
+  const pattern2 =  /[0-9]/;  //숫자
+  const pattern3 = /\s/;  // 공백
+  const pattern4 = /[~!@#$%^&*()_+|<>?:{}]/; //특수문자
 
   useEffect(() => {
      if (userName.length === 0) {
        setNameMessage('')
        setIsName(false)
-     } else if (userName.length < 2 || userName.length > 5) {
-       setNameMessage('2글자 이상 5글자 미만으로 입력해주세요.')
-       setIsName(false)
-     } else {
-       setNameMessage('올바른 이름 형식입니다')
-       setIsName(true)
-     }
+      } else if (pattern1.test(userName)) {
+        setNameMessage("한글로 입력해 주세요.")
+        setIsName(false)
+      } else if (pattern2.test(userName) || pattern3.test(userName) || pattern4.test(userName)){
+        setNameMessage('이름에 특수문자(숫자) 및 공백을 포함할 수 없습니다.')
+        setIsName(false)
+      } else if (userName.length < 2 || userName.length > 5) {
+        setNameMessage('2글자 이상 5글자 미만으로 입력해주세요.')
+        setIsName(false)
+      } else {
+        setNameMessage('올바른 이름 형식입니다')
+        setIsName(true)
+      }
    },[userName, post])
 
 

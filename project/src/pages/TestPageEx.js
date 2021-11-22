@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom";
+import { Progress } from 'react-sweet-progress';
+import "react-sweet-progress/lib/style.css";
 
 
 
@@ -17,7 +19,29 @@ const TestPageEx = () => {
     <div>
       <h1>검사예시</h1>
       {/* <span><ProgressBar now={now} label={`${now}% completed`}/></span> */}
-
+      <Progress
+        percent={0}
+        
+        theme={{
+          error: {
+            trailColor: 'pink',
+            color: 'red'
+          },
+          default: {
+            trailColor: 'lightblue',
+            color: 'blue'
+          },
+          active: {
+            trailColor: 'lightblue',
+            color: '#fbc630'
+          },
+          success: {
+            trailColor: 'lime',
+            color: 'green'
+          }
+    
+        }}
+        />
         <div>
           직업과 관련된 두개의 가치 중에서 자기에게 더 중요한 가치에 체크하세요.
           <br />
