@@ -6,11 +6,13 @@
 }
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
 
+
 .App {
   background: linear-gradient(to right, #e0eafc, #cfdef3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: black;
   font-family: 'SBAggroB';
   text-align: center;
+  height: 1000px;
 }
 
 h1 {

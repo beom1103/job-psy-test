@@ -77,6 +77,7 @@ function User() {
           class="input is-info is-rounded is-focused" 
           type="text" 
           placeholder="이름을 입력하세요."
+          autoComplete="off"
           value={userName}
           onChange={onChangeName}
           /> 
