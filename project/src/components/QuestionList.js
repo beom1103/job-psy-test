@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../components/UserStore";
 
 
-const QuestionList = ({question, countHandler}) => {
+const QuestionList = ({question, countHandler, buttonCount}) => {
   
   const [post,setPost] = useContext(UserContext);
 
@@ -30,12 +30,11 @@ const QuestionList = ({question, countHandler}) => {
     for (let i of Object.entries(inputs)) {
       answerList.push(i.join("="));
     }
-
       post.answers = answerList.join(" ");
       countHandler(perBar) //문항수 체크 후 부모 TestPage로 값을 넘겨줌.
-  }, [inputs, post, perBar])
-
-
+      console.log(post)
+  }, [inputs])
+  
   return (
     <div>
         {question.map((question) => {

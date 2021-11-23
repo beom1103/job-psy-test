@@ -2,7 +2,6 @@ import React, { useState, useCallback, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../components/UserStore";
 
-
 function User() {
   const [post, setPost] = useContext(UserContext);
 
@@ -14,7 +13,7 @@ function User() {
   const [isChecked, setIsChecked] = useState(false);
   const pattern1 = /[a-zA-Z]/; //영어 
   const pattern2 =  /[0-9]/;  //숫자
-  const pattern3 = /\s/;  // 공백
+  const pattern3 = /\s/;  // 공백W
   const pattern4 = /[~!@#$%^&*()_+|<>?:{}]/; //특수문자
 
   useEffect(() => {
@@ -31,7 +30,7 @@ function User() {
         setNameMessage('2글자 이상 5글자 미만으로 입력해주세요.')
         setIsName(false)
       } else {
-        setNameMessage('올바른 이름 형식입니다')
+        setNameMessage("")
         setIsName(true)
       }
    },[userName, post])
@@ -51,6 +50,7 @@ function User() {
   const onChangeChecked = () => {
     setIsChecked(true)
     setCheckMessage('')
+    console.log(post)
 
   }
   // post 객체에 데이터를 추가하는 함수
@@ -64,45 +64,60 @@ function User() {
   },[post])
   
   return (
-    <div>
+    <div className="User">
       <h1>
-        직업가치관검사
+         | 직업가치관검사 |
       </h1>
 
-      <form onChange={objHandler}>
+      <form className="inputBox" onChange={objHandler}>
         <div>
-          <label htmlFor="이름">이름 : </label>
+          <label htmlFor={userName}>이름</label> 
           <input 
-            type="text"
-            value = {userName} 
-            name="name" 
-            placeholder="이름을 입력하세요." 
-            autoComplete="off"
-            onChange={onChangeName} />
-    
+          name="name"
+          class="input is-info is-rounded is-focused" 
+          type="text" 
+          placeholder="이름을 입력하세요."
+          value={userName}
+          onChange={onChangeName}
+          /> 
+          <br />
           <p>{nameMessage}</p>
         </div>
-        <br />
-
+          
         <div className="checkBox" >
-          <span>
-            <label htmlFor="gender">성별 : </label>
-            <input type="radio" value="100323" name="gender" id="male" onClick={onChangeChecked} />남
-            <input type="radio" value="100324" name="gender" id="female" onClick={onChangeChecked} />여
-          </ span>  &nbsp;
-          <span>{checkMessage}</span>
+          {/* <label htmlFor="gender">성별</label>  */}
+
+          <span className="mf">
+            <div>성별</div>
+                <span className="m">
+                  <input type="radio" value="100323" name="gender" id="male" onClick={onChangeChecked} />
+                  <label htmlFor="male">남자</label>
+                </span>
+                
+                <span className="f">
+                  <input type="radio" value="100324" name="gender" id="female" onClick={onChangeChecked} />
+                  <label htmlFor="female">여자</label>
+                </span>
+          </span>
+         
+          <br />
+          <p>{checkMessage}</p>
+          
         </div>
+            
+        
+
 
         <br />
 
         <Link to="/testEx" post={post} objHandler={objHandler}>
-          <button
-            type="submit"
-            disabled={!(isName && isChecked)}
-          >검사시작
-          </button>
+        <button 
+          class="button is-link is-rounded is-large"
+          type="submit"
+          disabled={!(isName && isChecked)}>
+          검사시작
+        </button>
         </Link>
-        
       </form>
     </div>
 

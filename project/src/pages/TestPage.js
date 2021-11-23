@@ -11,14 +11,16 @@ const TestPage = () => {
 
   // 진행상황 컨트롤
   const [count, setCount] = useState(0); //문항 수 체크
-  const [buttonCtrl, setButtonCtrl] = useState(0);
+  const [buttonCtrl, setButtonCtrl] = useState(-1);
   const countHandler = (perBar) => {
     setCount(perBar)
   }; // 문항수 체크 후 
   
   useEffect(() => {
     setButtonCtrl(buttonCtrl + 1) //버튼을 제어하는 state
+    console.log(buttonCtrl)
   }, [count])
+
 
   // 다음, 이전 이벤트 조작 
   const next = () => {
@@ -78,6 +80,7 @@ const TestPage = () => {
         prev={prev}
         curPage={curPage}
         buttonCtrl={buttonCtrl}
+        
         />
       
       <Link to="/test/complete">
