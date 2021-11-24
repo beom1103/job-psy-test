@@ -66,9 +66,11 @@ const TestPage = () => {
   return (
     <div className="test">
       <h1>| 검사진행 |</h1>
-      <div className="pgs">
-        <p>{count}/28</p>
-        <ProgressBar count={count} />
+      <div>
+        <div className="pgs">
+          <p>{count}/28</p>
+          <ProgressBar count={count} />
+        </div>
       </div>
       <QuestionList question={cur} countHandler={countHandler} />
       <Pagination 
@@ -83,7 +85,9 @@ const TestPage = () => {
         />
       
       <Link to="/test/complete">
-        <button disabled={(count != 28)}>제출
+        <button 
+          className="button is-link is-focused is-large"
+          hidden={(count != 28)}>제출
         </button>
       </Link>
 

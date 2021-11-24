@@ -40,33 +40,37 @@ const QuestionList = ({question, countHandler, buttonCount}) => {
       
         {question.map((question) => {
           return (
-            <div key={question['qitemNo']}>
-              <h3>
+            <div className="container-lg" key={question['qitemNo']}>
+              <h5>
                 {question['qitemNo']}번 : <span> {question['question']}</span>
-              </h3>
+              </h5>
               <form className="qsBox" onChange={objHandler}>
-                <input
-                  id="1" 
-                  type="radio" 
-                  name={"B"+question['qitemNo']} 
-                  value={question['answerScore01']}
-                  checked={sessionStorage.getItem("B"+question['qitemNo']) === question['answerScore01']}
-                  />
-                <span name="1">{question['answer01']} : </span> 
-                <label htmlFor="1">{question['answer03']}</label>
+                <div className="op1">
+                  <input
+                    id={question['answerScore01']}
+                    type="radio"
+                    name={"B"+question['qitemNo']}
+                    value={question['answerScore01']}
+                    checked={sessionStorage.getItem("B"+question['qitemNo']) === question['answerScore01']}
+                    />
+                  <label
+                    htmlFor={question['answerScore01']}>{question['answer01']}</label>
+                  <span> : {question['answer03']}</span>
+                </div>
 
-                <br />
-
-                <input
-                  id="2" 
-                  type="radio" 
-                  name={"B"+question['qitemNo']} 
-                  value={question['answerScore02']}
-                  checked={sessionStorage.getItem("B"+question['qitemNo']) === question['answerScore02']}
-                  />
-                <span name="2">{question['answer02']} : </span>
-
-                <label htmlFor="2">{question['answer04']}</label>
+                <div className="op2">
+                  <input
+                    id={question['answerScore02']}
+                    type="radio"
+                    name={"B"+question['qitemNo']}
+                    value={question['answerScore02']}
+                    checked={sessionStorage.getItem("B"+question['qitemNo']) === question['answerScore02']}
+                    />
+                  <label
+                    htmlFor={question['answerScore02']}
+                    >{question['answer02']}</label>
+                  <span> : {question['answer04']}</span>
+                </div>
               </form>
             </div>
           )

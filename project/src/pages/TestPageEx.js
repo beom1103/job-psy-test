@@ -60,7 +60,7 @@ const TestPageEx = () => {
               <div className="optionBox">
                   <div className="ex1">
                     <input id ="option1" type="radio" className="btn-check"  value="1" name="answer" />
-                    <label className="btn btn-outline-success g-col-6" htmlFor="option1">(1)능력발휘</label>
+                    <label className="btn btn-outline-success" htmlFor="option1">(1)능력발휘</label>
                     <span>(1)직업을 통해 자신의 능력을 발휘하는 것입니다.</span>
                 </div>
 

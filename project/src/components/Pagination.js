@@ -5,12 +5,14 @@ const Pagination = ({next, prev, curPage, buttonCtrl}) => {
   return (
 
     <div>
-      <button 
+      <button
+        className="btn btn-outline-danger" 
         onClick={prev}
         disabled={(curPage === 1)}
       >이전</button>
-      <span>{curPage}/6</span>
-        <button 
+      <span className="prnx">{curPage}/6</span>
+        <button
+          className="btn btn-outline-success" 
           onClick={next}
           disabled={(curPage === 6) || buttonCtrl < 5}
         >다음</button>

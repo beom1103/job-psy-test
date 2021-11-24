@@ -74,7 +74,7 @@ function User() {
           <label htmlFor={userName}>이름</label> 
           <input 
           name="name"
-          class="input is-info is-rounded is-focused" 
+          className="input is-info is-rounded is-focused" 
           type="text" 
           placeholder="이름을 입력하세요."
           autoComplete="off"
@@ -113,7 +113,7 @@ function User() {
 
         <Link to="/testEx" post={post} objHandler={objHandler}>
         <button 
-          class="button is-link is-rounded is-large"
+          className="button is-link is-rounded is-large"
           type="submit"
           disabled={!(isName && isChecked)}>
           검사시작
