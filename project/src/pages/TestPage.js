@@ -64,12 +64,11 @@ const TestPage = () => {
   }, [])
 
   return (
-    <div>
-      <div>
-        <h1>검사진행</h1>
+    <div className="test">
+      <h1>| 검사진행 |</h1>
+      <div className="pgs">
         <p>{count}/28</p>
         <ProgressBar count={count} />
-        {/*여기에 진행 막대기 넣어야함.*/}
       </div>
       <QuestionList question={cur} countHandler={countHandler} />
       <Pagination 

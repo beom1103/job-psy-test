@@ -15,7 +15,7 @@
   height: 1000px;
 }
 
-h1 {
+.User h1 {
   padding-top: 300px;
   font-size: 50px;  
 }
@@ -89,3 +89,95 @@ h1 {
   border-color: #eaafc8;
   z-index: 1;
 }
+
+
+
+/* TestEx */
+.TestEx .qsBoxEx {
+  padding: 20px;
+  text-align: left;
+}
+
+
+.TestEx h1 {
+  font-size: 50px;
+  padding: 50px;
+}
+
+
+.TestEx .text {
+  font-size: 20px;
+  padding: 50px;
+}
+
+.TestEx h4 {
+  font-size: 18px;
+  color: #021B79;
+  padding-top: 30px;
+
+}
+.TestEx input {
+  margin-top: 10px;
+}
+
+.TestEx button {
+  margin-top: 50px;
+  margin-right: px;
+}
+
+.TestEx .tLogo {
+  width: 200px;
+  height: 200px;
+}
+
+.TestEx .container {
+  border: 2px solid #021B79;
+  border-radius: 15%;
+  margin-top: 30px;
+  width: 800px;
+}
+
+.TestEx .optionBox .ex1 {
+  margin-bottom: 10px;
+}
+
+.TestEx .optionBox .ex1 span{
+  padding-left: 30px;  
+}
+
+.TestEx .ex2 {
+  margin-bottom: 10px;
+}
+
+.TestEx .optionBox .ex2 span{
+  padding-left: 39px;  
+}
+
+
+
+/* Test.js */
+.test h1 {
+  font-size: 50px;
+  padding: 25px;
+}
+
+.test .pgs {
+  margin-bottom: 35px;
+}
+
+.qsBox {
+  margin: 20px;
+  border: 3px solid #1e3c72;
+  padding: 10px;
+  width: 800px;
+}
+.qsBox span {
+  color: #ca0471;
+}
+
+
+h3 span {
+  color: #032c79;
+  margin-bottom: 10px;
+}
+

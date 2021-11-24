@@ -37,14 +37,16 @@ const QuestionList = ({question, countHandler, buttonCount}) => {
   
   return (
     <div>
+      
         {question.map((question) => {
           return (
             <div key={question['qitemNo']}>
               <h3>
-                {question['qitemNo']}번 {question['question']}
+                {question['qitemNo']}번 : <span> {question['question']}</span>
               </h3>
-              <form onChange={objHandler}>
-                <input 
+              <form className="qsBox" onChange={objHandler}>
+                <input
+                  id="1" 
                   type="radio" 
                   name={"B"+question['qitemNo']} 
                   value={question['answerScore01']}
@@ -55,13 +57,15 @@ const QuestionList = ({question, countHandler, buttonCount}) => {
 
                 <br />
 
-                <input 
+                <input
+                  id="2" 
                   type="radio" 
                   name={"B"+question['qitemNo']} 
                   value={question['answerScore02']}
                   checked={sessionStorage.getItem("B"+question['qitemNo']) === question['answerScore02']}
                   />
                 <span name="2">{question['answer02']} : </span>
+
                 <label htmlFor="2">{question['answer04']}</label>
               </form>
             </div>

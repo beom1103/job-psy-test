@@ -9,7 +9,7 @@ const Result = () => {
   const key = '5fcc4366025782ac126088744b9620ea';
 
   const ax = axios.create({
-    baseURL: `https://www.career.go.kr/inspct/openapi/test/report?apikey=${key}&q=6`,
+    baseURL: `https://www.career.go.kr/inspct/openapi/test/report?apikey=${key}&seq=6`,
     headers: {"Content-Type": "application/json"},
   });
 

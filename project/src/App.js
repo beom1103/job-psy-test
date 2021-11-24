@@ -8,7 +8,7 @@ import Result from './pages/Result';
 import React from "react";
 import UserStore from './components/UserStore';
 import { Container, Box } from '@mui/material';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 

@@ -16,8 +16,8 @@ const TestPageEx = () => {
   return (
     // 진행바 구현해야 함.
 
-    <div>
-      <h1>검사예시</h1>
+    <div className="TestEx">
+      <h1>| 검사예시 |</h1>
       {/* <span><ProgressBar now={now} label={`${now}% completed`}/></span> */}
       <Progress
         percent={0}
@@ -42,24 +42,49 @@ const TestPageEx = () => {
     
         }}
         />
-        <div>
+
+        <div className="text">
           직업과 관련된 두개의 가치 중에서 자기에게 더 중요한 가치에 체크하세요.
+          <br />
           <br />
           가치의 뜻을 잘 모르겠다면 문항 아래에 있는 가치의 설명을 확인해 보세요.
         </div>
         
-        <h4>두개의 가치중 자신에게 더 중요한 가치를 선택하세요.</h4>
-        <form onChange={onChangeChecked}>
-          <input type="radio" value="1" name="answer" /> 능력발휘
-          <input type="radio" value="2" name="answer" /> 자율성
-        </form>
+        <img className="tLogo" src="img/checklist.png" alt="test_logo" />
+        
+        <div className="container">
+        <h4>연습 : 두개의 가치중 자신에게 더 중요한 가치를 선택하세요.</h4>
+          <div className="qsBoxEx">
+            
+            <form onChange={onChangeChecked}>
+              <div className="optionBox">
+                  <div className="ex1">
+                    <input id ="option1" type="radio" className="btn-check"  value="1" name="answer" />
+                    <label className="btn btn-outline-success g-col-6" htmlFor="option1">(1)능력발휘</label>
+                    <span>(1)직업을 통해 자신의 능력을 발휘하는 것입니다.</span>
+                </div>
+
+              
+                  <div className="ex2">
+                    <input id="option2" type="radio" className="btn-check" value="2" name="answer" />
+                    <label className="btn btn-outline-danger" htmlFor="option2">(2)자율성</label>
+                    <span>(2)일하는 시간과 방식에 대해서 스스로 결정할 수 있는 것입니다.</span>                   
+                  </div> 
+                </div>
+            </form>
+          </div>
+        </div>
+      
       
       <Link to="/test" >
-        <button
-            type="submit"
-            disabled={!(isChecked)}
-          >검사시작
-          </button>
+        
+        <button 
+          class="button is-link is-rounded is-large"
+          type="submit"
+          disabled={!(isChecked)}>
+          검사시작
+        </button>
+
       </Link>
     </div>
   )
