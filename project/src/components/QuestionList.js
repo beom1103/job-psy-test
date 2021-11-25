@@ -4,19 +4,18 @@ import { UserContext } from "../components/UserStore";
 
 const QuestionList = ({question, countHandler, buttonCount}) => {
   
-  const [post,setPost] = useContext(UserContext);
+  const [post] = useContext(UserContext);
 
   // check값을 닮을 state
   const [inputs, setInputs] = useState([]);
 
-  
 
   const objHandler =((e) => {
     const {name, value} = e.target;
     setInputs((i) => {
       const newInputs = {...i};
-      newInputs[name] = value
-      return newInputs;
+      newInputs[name] = value 
+      return newInputs; 
     })
     sessionStorage.setItem(name, value)
   });
@@ -26,18 +25,15 @@ const QuestionList = ({question, countHandler, buttonCount}) => {
   
   useEffect(() => {
     const answerList = [];    
-
     for (let i of Object.entries(inputs)) {
       answerList.push(i.join("="));
-    }
+    } 
       post.answers = answerList.join(" ");
-      countHandler(perBar) //문항수 체크 후 부모 TestPage로 값을 넘겨줌.
-      console.log(post)
+      countHandler(perBar) //문항수 체크 후 부모 TestPage로 값을 넘겨줌.      
   }, [inputs])
-  
+
   return (
     <div>
-      
         {question.map((question) => {
           return (
             <div className="container-lg" key={question['qitemNo']}>
@@ -51,6 +47,7 @@ const QuestionList = ({question, countHandler, buttonCount}) => {
                     type="radio"
                     name={"B"+question['qitemNo']}
                     value={question['answerScore01']}
+                    readOnly 
                     checked={sessionStorage.getItem("B"+question['qitemNo']) === question['answerScore01']}
                     />
                   <label
@@ -63,6 +60,7 @@ const QuestionList = ({question, countHandler, buttonCount}) => {
                     id={question['answerScore02']}
                     type="radio"
                     name={"B"+question['qitemNo']}
+                    readOnly 
                     value={question['answerScore02']}
                     checked={sessionStorage.getItem("B"+question['qitemNo']) === question['answerScore02']}
                     />

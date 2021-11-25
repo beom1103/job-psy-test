@@ -12,13 +12,11 @@ const TestPageEx = () => {
   const onChangeChecked = (e) => {
   setIsChecked(true)
 }
-  const now = 0;
   return (
     // 진행바 구현해야 함.
 
     <div className="TestEx">
       <h1>| 검사예시 |</h1>
-      {/* <span><ProgressBar now={now} label={`${now}% completed`}/></span> */}
       <Progress
         percent={0}
         
@@ -79,7 +77,7 @@ const TestPageEx = () => {
       <Link to="/test" >
         
         <button 
-          class="button is-link is-rounded is-large"
+          className="button is-link is-rounded is-large"
           type="submit"
           disabled={!(isChecked)}>
           검사시작

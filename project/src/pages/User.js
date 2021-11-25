@@ -68,7 +68,7 @@ function User() {
       <h1>
          | 직업가치관검사 |
       </h1>
-
+      <h3>당신의 가치관과 적합한 직업은 무엇일까요?</h3>
       <form className="inputBox" onChange={objHandler}>
         <div>
           <label htmlFor={userName}>이름</label> 
@@ -86,7 +86,6 @@ function User() {
         </div>
           
         <div className="checkBox" >
-          {/* <label htmlFor="gender">성별</label>  */}
 
           <span className="mf">
             <div>성별</div>
@@ -111,7 +110,7 @@ function User() {
 
         <br />
 
-        <Link to="/testEx" post={post} objHandler={objHandler}>
+        <Link to="/testEx">
         <button 
           className="button is-link is-rounded is-large"
           type="submit"

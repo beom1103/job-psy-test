@@ -81,7 +81,6 @@ const TestPage = () => {
         prev={prev}
         curPage={curPage}
         buttonCtrl={buttonCtrl}
-        
         />
       
       <Link to="/test/complete">
