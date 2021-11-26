@@ -272,3 +272,13 @@
   line-height: 35px;
 }
 
+.result h1 {
+  padding-top: 30px;
+}
+
+.result h2{
+  padding-top: 20px;
+}
+.result .aaaa{
+  display: inline-flex;
+}

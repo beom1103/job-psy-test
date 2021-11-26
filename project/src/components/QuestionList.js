@@ -18,6 +18,7 @@ const QuestionList = ({question, countHandler, buttonCount}) => {
       return newInputs; 
     })
     sessionStorage.setItem(name, value)
+    console.log(post)
   });
   
   const perBar = Object.keys(inputs).length
