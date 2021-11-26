@@ -10,6 +10,7 @@ const UserStore = (props) => {
     qestrnSeq: "6",
     trgetSe: "100029",
     name : "",
+    grade:"",
     gender: "",
     startDtm: new Date().getTime(),
     answers : ""
