@@ -160,10 +160,12 @@ const Result = () => {
                     <tr>
                       <th
                       style={
-                      jobLevel === "중졸이하"
-                        ? { display: "none" }
-                        : {}
-                    }>{jobLevel}</th>
+                        jobData.length <= 0
+                          ? { display: "none" }
+                          : {}
+                      }
+                      >{jobLevel}</th>
+
 
                       <td>
                         {jobData.map((level) => {
@@ -208,7 +210,7 @@ const Result = () => {
                     <tr>
                       <th
                         style={
-                          majorLevel === "계열무관"
+                          majData.length <= 0
                             ? { display: "none" }
                             : {}
                         }

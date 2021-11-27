@@ -14,7 +14,7 @@ const Pagination = ({next, prev, curPage, buttonCtrl}) => {
         <button
           className="btn btn-outline-success" 
           onClick={next}
-          disabled={(curPage === 6) || buttonCtrl < 5}
+          disabled={(curPage === 6 || buttonCtrl===false)}
         >다음</button>
     </div>
 

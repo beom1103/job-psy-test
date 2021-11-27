@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../components/UserStore";
 
 
-const QuestionList = ({question, countHandler, buttonCount}) => {
+const QuestionList = ({question, countHandler}) => {
   
   const [post] = useContext(UserContext);
 
