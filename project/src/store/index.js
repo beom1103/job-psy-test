@@ -7,7 +7,6 @@ export const job = [
 ];
 
 export const major = [
-  "계열무관",
   "인문",
   "사회",
   "교육",
@@ -15,6 +14,7 @@ export const major = [
   "자연",
   "의학",
   "예체능",
+  "계열무관"
 ];
 export const valueNames = {
   1: "능력발휘",

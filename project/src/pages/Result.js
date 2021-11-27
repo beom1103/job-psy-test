@@ -180,11 +180,9 @@ const Result = () => {
                           );
                         })}
                       </td>
-                    </tr>
-                  
+                    </tr>  
                   )}
               )}
-            
           </tbody>
         </table>
 
@@ -192,6 +190,50 @@ const Result = () => {
 
       <div>
         <h4>종사자 평균 전공별</h4>
+        <table className="table">
+          <thead className="thead-light">
+            <tr className="is-selected">
+              <th> 분야</th>
+              <td>직업명</td>
+            </tr>
+          </thead>
+          
+          <tbody>
+            {major.map(
+                (majorLevel, idx) => {
+                  const majData = (majors || []).filter((i) => {
+                    return i?.[2] === idx+1;
+                  });
+                  return (
+                    <tr>
+                      <th
+                        style={
+                          majorLevel === "계열무관"
+                            ? { display: "none" }
+                            : {}
+                        }
+                      >{majorLevel}</th>
+
+                      <td>
+                        {majData.map((level) => {
+                          const [key, value] = level;
+                          return (
+                            <a
+                              className="mr-2" 
+                              href={`https://www.career.go.kr/cnet/front/base/job/jobView.do?SEQ=${key}`}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              {value}
+                            </a>
+                          );
+                        })}
+                      </td>
+                    </tr>  
+                  )}
+              )}
+          </tbody>
+        </table>
       </div>
 
 
