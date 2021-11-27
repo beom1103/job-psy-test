@@ -29,15 +29,17 @@ const TestPage = () => {
       setButtonCtrl(false)
     } else if( count % i === 0 ) {
       setButtonCtrl(true)
-    } else {
+    } else if ( count > i){
+      setButtonCtrl(true)
+    }else {
       setButtonCtrl(false)
     } 
-    console.log(i)
   }, [count, curPage])
   
   //버튼을 제어하는 state
   const next = () => {
     setCurPage(curPage+1)
+    window.scrollTo(0,0)
   };
 
   const prev = () => {
@@ -90,7 +92,7 @@ const TestPage = () => {
       <Link to="/test/complete">
         <button 
           className="button is-link is-focused is-large"
-          hidden={(count != 28)}>제출
+          hidden={(count !== 28)}>제출
         </button>
       </Link>
 

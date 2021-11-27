@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { UserContext } from "../components/UserStore";
 import axios from 'axios';
 import { valueNames } from '../store/index';
@@ -17,12 +17,8 @@ const Complete = () => {
 
   
 
-  // const [rate, setRate] = {
-    
-  // }
-  const wonScore = resultData['wonScore'];
+  
 
-  const params = resultData;
   useEffect(() => {
     async function loadData() {
       try {
@@ -62,15 +58,31 @@ const Complete = () => {
 
   return (
     <div className="complete">
-      <h2><span>{post['name']}</span>님 검사가 완료되었습니다.</h2>
+      <section class="hero is-info is-small">
+        <div class="hero-body">
+          <p class="title">
+            | 검사 완료 |
+          </p>
+          <br />
+          <p class="subtitle">
+            <h2><span>{post['name']}</span>님 검사가 완료되었습니다.</h2>
+          </p>
+        </div>
+      </section>
+      
+      
+      
+      <div className="result-box">
+      {rate.length === 0? "" :
+          <h3>직업생활과 관련하여 <span>{post['name']}</span>님은 <span className="best">{rate[rate.length-1].name}</span>(와)과 <span className="best">{rate[rate.length-2].name}</span>(을)를 가장 중요하게 생각합니다. 반면에 <span className="worst">{rate[0].name}</span>와(과) <span className="worst">{rate[1].name}</span>은(는) 상대적으로 덜 중요하게 생각합니다.</h3>
+        }
+      
+        
+      </div>
+
       <h3>검사 결과는 여러분이 직업을 선택할 때 상대적으로 어떠한 가치를 중요하게 생각하는지를 알려주고,
       중요 가치를 충족시켜줄 수 있는 직업에 대해 생각해 볼 기회를 제공합니다.</h3>
-      
-      {rate.length === 0? "" : 
-        <h4>직업생활과 관련하여 {post['name']}님은 {rate[rate.length-1].name}(와)과 {rate[rate.length-2].name}(을)를 가장 중요하게 생각합니다.반면에 {rate[0].name}와 {rate[1].name}은(는) 상대적으로 덜 중요하게 생각합니다.</h4>
-      }
-      
-      <button className="button is-info" onClick={onClick}>결과보기</button>
+      <button className="button is-info is-large" onClick={onClick}>결과보기</button>
     </div>
   )
 }

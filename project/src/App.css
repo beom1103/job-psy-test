@@ -17,7 +17,7 @@
 
 .User {
   background-color: #ffffff;
-  border: 2px solid rgb(42, 42, 163);
+  border: 3px solid #17746c;;
   border-radius: 10rem;
   margin-top: 35px;
 }
@@ -165,8 +165,6 @@
   padding-left: 39px;  
 }
 
-
-
 /* Test.js */
 .test h1 {
   font-size: 30px;
@@ -183,6 +181,8 @@
 
 .test .container-lg .qsBox {
   margin: 10px;
+
+  background-color: rgb(255, 255, 255);
   border-bottom: 2px solid #17746c;
   border-left: 2px solid #f64f5a00;
   border-right: 2px solid #ff001100;
@@ -190,7 +190,7 @@
   padding: 10px;
 
 
-  text-align: left;
+  text-align: center;
 
 }
 
@@ -198,10 +198,8 @@
   font-size: 18px;
 }
 
-
 .qsBox div {
   margin: 5px;
-  padding-left: 150px;
 }
 
 .qsBox input[type=radio]{
@@ -217,7 +215,7 @@
   box-sizing: border-box;
   position: relative;
   display: inline-block;
-  border: solid 1px white;
+  border: solid 1px black;
   border-radius: 3rem;
   line-height: 140%;
   text-align: center;
@@ -257,19 +255,40 @@
 /* complte page */
 
 .complete {
-  margin-top: 50px;
-  
+  margin-top: 50px;  
 }
 
 .complete span {
-  color: #021B79;
+  color: #000000;
+}
+
+
+.complete .best {
+  color: #0d7e5c;
+}
+
+.complete .worst {
+  color: #aa102a;
 }
 
 .complete h3 {
-  padding-top: 60px;
   text-align: left;
   font-size: 20px;
   line-height: 35px;
+}
+
+.complete button{
+  margin-top: 100px;
+}
+
+.complete .result-box {
+  background-color: white;
+  padding: 30px 30px;
+  margin-bottom: 70px;
+}
+
+.complete .result-box h3 {
+  text-align: center;
 }
 
 .result .hero .title{
