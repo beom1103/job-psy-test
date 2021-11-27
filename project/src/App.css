@@ -272,6 +272,9 @@
   line-height: 35px;
 }
 
+.result .hero .title{
+  padding: 20px;
+}
 .result h1 {
   padding-top: 30px;
 }
