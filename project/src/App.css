@@ -288,7 +288,7 @@
 }
 
 .complete .result-box h3 {
-  text-align: center;
+  text-align: left;
 }
 
 .result .hero .title{
@@ -303,4 +303,20 @@
 }
 .result .aaaa{
   display: inline-flex;
+}
+
+.result p {
+  font-size: 19px;
+  padding-top: 25px;
+}
+.result h4 {
+  padding: 30px;
+}
+
+.result span {
+  color: #0d7e5c;
+}
+
+.result .nm {
+  color: #13065e;
 }

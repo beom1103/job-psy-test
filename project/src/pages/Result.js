@@ -37,7 +37,6 @@ const Result = () => {
 
 
   }, [location])
-  // const date = ress['data'].result['endDtm'].slice(0, 8)
 
   const today = new Date()
   const year = today.getFullYear();
@@ -45,7 +44,6 @@ const Result = () => {
   const day = ('0' + today.getDate()).slice(-2)
   const dateString = year + '-' + month  + '-' + day;
 
-  //post 초기화 해야함
   const data = [
     {
       "subject": rate[0].name,
@@ -95,11 +93,11 @@ const Result = () => {
     <div className="result">
       <section className="hero is-info is-small">
         <div className="hero-body">
-          <p className="title">
+          <h1 className="title">
           | 직업가치관검사 결과표 |
-          </p>
+          </h1>
           <p className="subtitle">
-            for {post.name} 님
+            for <span className="nm">{post.name}</span> 님
           </p>
         </div>
       </section>
@@ -137,7 +135,7 @@ const Result = () => {
 
       <div>
         <h2>2. 나의 가치관과 관련이 높은 직업</h2>
-        <p> 내가 중요하게 생각하는 {rate[rate.length-1].name}(와)과 {rate[rate.length-2].name}을(를)만족시킬 수 있는 직업은 다음과 같습니다.</p>
+        <p> 내가 중요하게 생각하는 <span>{rate[rate.length-1].name}</span>(와)과 <span>{rate[rate.length-2].name}</span>을(를)만족시킬 수 있는 직업은 다음과 같습니다.</p>
       </div>
 
       <div>
