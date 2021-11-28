@@ -7,31 +7,36 @@ import { valueNames } from '../store/index';
 const Complete = () => {
   const [post, setPost] = useContext(UserContext);
   const history = useHistory();
+
+  // 데이터를 저장하는 state
   const [resultData, setResultData] = useState({});
+
+  // 데이터를 정렬해서 닮을 state
   const [rate, setRate] = useState([]);
+
 
   const ax = axios.create({
     headers: {"Content-Type": "application/json"},
   });
 
-
-  
-
-  
-
   useEffect(() => {
     async function loadData() {
       try {
+        //url을 가져와서 seq저장
         const res = await ax.post(`http://www.career.go.kr/inspct/openapi/test/report?apikey=${post.apikey}`, post);
-        const seq = res.data.RESULT['url'].slice(-11);         
+        const seq = res.data.RESULT['url'].slice(-11); 
+        
+        //seq get을 통해 data 저장
         const ress = await axios.get(`https://www.career.go.kr/inspct/api/psycho/report?seq=${seq}`);
         setResultData(ress.data.result)
         
+        //값의 오름차순대로 정렬
         const score = ress.data.result.wonScore.split(" ").filter(sc=>sc).map(i => {
           i.split("=");
           return {"no": i[0], "name":valueNames[i[0]], "count": i[2]}
         })
 
+        //정렬한 값을 담음.
         setRate([...score].sort((a, b) => a.count - b.count))
         
       } catch (e) {
@@ -39,17 +44,12 @@ const Complete = () => {
       }
     }
     loadData(); 
-
-
-    console.log(rate)
-
-      
+    console.log(rate)    
   }, [])
 
-  // const [no1, no2] = [rate[rate.length-1], rate[rate.length-2]]
   
+  //결과 테이블로 정렬한 데이터를 보낼 함수
   function onClick() { 
-
         history.push({
         pathname: "/result",
         state: {rate}

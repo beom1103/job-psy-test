@@ -3,7 +3,6 @@ import React from "react";
 const Pagination = ({next, prev, curPage, buttonCtrl}) => {
 
   return (
-
     <div>
       <button
         className="btn btn-outline-danger" 
@@ -17,8 +16,6 @@ const Pagination = ({next, prev, curPage, buttonCtrl}) => {
           disabled={(curPage === 6 || buttonCtrl===false)}
         >다음</button>
     </div>
-
-
   );
 };
 

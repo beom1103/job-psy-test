@@ -14,14 +14,13 @@ const TestPage = () => {
   const [buttonCtrl, setButtonCtrl] = useState(false);
   const countHandler = (perBar) => {
     setCount(perBar)
-  }; // 문항수 체크 후 
+  }; 
   
- 
-
   // 현재 페이지
   const [curPage, setCurPage] = useState(1);
   // 페이지 당 문항수
   const [perPage, setPerPage] = useState(5);
+
   // 다음, 이전 이벤트 조작  
   useEffect(() => {
     const i = curPage * 5
@@ -36,6 +35,7 @@ const TestPage = () => {
     } 
   }, [count, curPage])
   
+  
   //버튼을 제어하는 state
   const next = () => {
     setCurPage(curPage+1)
@@ -47,9 +47,7 @@ const TestPage = () => {
     setButtonCtrl(true)
   };
   
-   
-  // const paginate = (pageNumber) => setCurPage(pageNumber);
-
+  
   // 해당 페이지의 마지막 index 번호
   const last = curPage * perPage;  
 

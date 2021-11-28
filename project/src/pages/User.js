@@ -42,11 +42,12 @@ function User() {
   const [checkMessage, setCheckMessage] = useState('성별을 체크해주세요.')
 
  
+  //input값이 변할때마다 화면에 이름을 나타내는 함수
   const onChangeName = useCallback((e) => {
     setUserName(e.target.value)
   }, [])
   
-  
+  // 성별을 체크했는지 확인하는 함수
   const onChangeChecked = () => {
     setIsChecked(true)
     setCheckMessage('')

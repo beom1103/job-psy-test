@@ -8,42 +8,44 @@ import axios from 'axios';
 
 const Result = () => {
   const [post, setPost] = useContext(UserContext);
+  
+  
+   //history로 가져온 데이터
   const location = useLocation()
   const { rate } = location.state
+
+  //직업과 전공을 닮을 state
   const [majors, setMajors] = useState(null);
   const [jobs, setJobs] = useState(null);
   
+
+  // axios로 직업정보와 학력정보 가져옴
   useEffect(() => {
     async function fetchJB() {
       try {
         const jobRes = await axios.get(`https://inspct.career.go.kr/inspct/api/psycho/value/jobs?no1=${rate[rate.length-1].no}&no2=${rate[rate.length-2].no}`)
-
         await setJobs(jobRes['data'])
 
         const majRes = await axios.get(`https://inspct.career.go.kr/inspct/api/psycho/value/majors?no1=${rate[rate.length-1].no}&no2=${rate[rate.length-2].no}`)
-
-
         setMajors(majRes['data']);
-
 
         console.log(jobs, majors)
       }
       catch (e) {
         console.log("get Error!!!")
       }
-      
     }
     fetchJB();
-
-
   }, [location])
 
+  //검사일
   const today = new Date()
   const year = today.getFullYear();
   const month = ('0' + (today.getMonth() + 1)).slice(-2);
   const day = ('0' + today.getDate()).slice(-2)
   const dateString = year + '-' + month  + '-' + day;
 
+  //차트 데이터
   const data = [
     {
       "subject": rate[0].name,
@@ -163,8 +165,6 @@ const Result = () => {
                           : {}
                       }
                       >{jobLevel}</th>
-
-
                       <td>
                         {jobData.map((level) => {
                           const [key, value] = level;
@@ -235,18 +235,6 @@ const Result = () => {
           </tbody>
         </table>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
       <Link to="/"><button className="button is-link is-focused is-large" onClick={sessionStorage.clear()}>다시 검사하기</button></Link>
 

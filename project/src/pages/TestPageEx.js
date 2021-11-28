@@ -6,15 +6,14 @@ import "react-sweet-progress/lib/style.css";
 
 
 const TestPageEx = () => {
-
+  //검사를 체크했는지 확인하는 state
   const [isChecked, setIsChecked] = useState(false);
-  
+  //체크 되었다면 true!!
   const onChangeChecked = (e) => {
   setIsChecked(true)
 }
-  return (
-    // 진행바 구현해야 함.
 
+  return (
     <div className="TestEx">
       <h1>| 검사예시 |</h1>
       <Progress

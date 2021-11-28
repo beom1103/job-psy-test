@@ -3,13 +3,14 @@ import { UserContext } from "../components/UserStore";
 
 
 const QuestionList = ({question, countHandler}) => {
-  
+  //post === user가 입력한 정보를 담는 store
   const [post] = useContext(UserContext);
 
   // check값을 닮을 state
   const [inputs, setInputs] = useState([]);
 
 
+  //check될 때 값을 저장하는 함수
   const objHandler =((e) => {
     const {name, value} = e.target;
     setInputs((i) => {
@@ -21,9 +22,10 @@ const QuestionList = ({question, countHandler}) => {
     console.log(post)
   });
   
+  //객체의 길이로 progressbar의 수치 표현
   const perBar = Object.keys(inputs).length
+
   // 객체를 배열로 변환해서 post에 알맞은 형태로 변환해주는 함수
-  
   useEffect(() => {
     const answerList = [];    
     for (let i of Object.entries(inputs)) {
@@ -53,8 +55,7 @@ const QuestionList = ({question, countHandler}) => {
                     checked={sessionStorage.getItem("B"+question['qitemNo']) === question['answerScore01']}
                     />
                   <label
-                    htmlFor={question['answerScore01']}> {question['answer03']}</label>
-                  
+                    htmlFor={question['answerScore01']}> {question['answer03']}</label> 
                 </div>
 
                 <div className="op2">
