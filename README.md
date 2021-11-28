@@ -67,13 +67,21 @@
 ```
   // 다음, 이전 이벤트 조작  
   useEffect(() => {
+    //현재 페이지 X 문항 수 
     const i = curPage * 5
+
+    // 체크된 문제의 수가 0이면 다음버튼 비활성화
     if (count === 0) {
       setButtonCtrl(false)
+
+      현재 체크된 문제의 수를 i로 나눴을 때 나머지가 0이면 true
     } else if( count % i === 0 ) {
       setButtonCtrl(true)
+
+      // 체크된 문제의 수가 i보다 크면 true
     } else if ( count > i){
       setButtonCtrl(true)
+
     }else {
       setButtonCtrl(false)
     } 
